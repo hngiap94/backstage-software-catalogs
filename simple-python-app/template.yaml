@@ -9,7 +9,7 @@ metadata:
     - app
 spec:
   owner: hngiap94@gmail.com
-  type: application
+  type: service
   parameters:
     - title: Provide some simple information
       required:
