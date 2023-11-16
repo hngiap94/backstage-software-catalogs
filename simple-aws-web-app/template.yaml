@@ -21,22 +21,22 @@ spec:
           type: string
           description: Unique name of the application
           ui:field: EntityNamePicker
-        description:
-          title: Description
-          type: string
-          description: Help others understand what this application is for.
-        author:
-          title: Author
-          type: string
-          description: Author of the application
-          # ui:field: OwnerPicker
-          # ui:options:
-          #   allowedKinds:
-          #     - Group
-        authorEmail:
-          title: Author Email
-          type: string
-          description: Author's email of the application
+        # description:
+        #   title: Description
+        #   type: string
+        #   description: Help others understand what this application is for.
+        # author:
+        #   title: Author
+        #   type: string
+        #   description: Author of the application
+        #   ui:field: OwnerPicker
+        #   ui:options:
+        #     allowedKinds:
+        #       - Group
+        # authorEmail:
+        #   title: Author Email
+        #   type: string
+        #   description: Author's email of the application
     - title: Choose a location
       required:
         - repoUrl
@@ -58,10 +58,10 @@ spec:
           - .github/workflows/*
         values:
           application_name: ${{ parameters.application_name }}
-          description: ${{ parameters.description }}
-          destination: ${{ parameters.repoUrl | parseRepoUrl }}
-          author: ${{ parameters.author }}
-          authorEmail: ${{ parameters.authorEmail }}
+          # description: ${{ parameters.description }}
+          # destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          # author: ${{ parameters.author }}
+          # authorEmail: ${{ parameters.authorEmail }}
 
     - id: publish
       name: Publish
