@@ -71,6 +71,9 @@ spec:
           - github.com
         description: This is ${{ parameters.application_name }}
         repoUrl: ${{ parameters.repoUrl }}
+        repoVisibility: "public"
+        secrets:
+          test: 'abcabc'
 
     - id: register
       name: Register
