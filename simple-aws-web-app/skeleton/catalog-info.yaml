@@ -11,4 +11,4 @@ metadata:
 spec:
   type: application
   lifecycle: experimental
-  owner: ${{values.author | dump}}
+  owner: ${{values.owner | dump}}

@@ -3,6 +3,7 @@ data "aws_caller_identity" "current" {}
 # amplify
 module "amplify" {
   source         = "./modules/amplify"
+  access_token   = var.access_token
 }
 
 # dynamodb

@@ -21,25 +21,22 @@ spec:
           type: string
           description: Unique name of the application
           ui:field: EntityNamePicker
-        # description:
-        #   title: Description
-        #   type: string
-        #   description: Help others understand what this application is for.
-        # author:
-        #   title: Author
-        #   type: string
-        #   description: Author of the application
-        #   ui:field: OwnerPicker
-        #   ui:options:
-        #     allowedKinds:
-        #       - Group
-        # authorEmail:
-        #   title: Author Email
-        #   type: string
-        #   description: Author's email of the application
-    - title: Choose a location
+        description:
+          title: Description
+          type: string
+          description: Help others understand what this application is for.
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the application
+          # ui:field: OwnerPicker
+          # ui:options:
+          #   allowedKinds:
+          #     - Group
+    - title: Repository configuration
       required:
         - repoUrl
+        - accessToken
       properties:
         repoUrl:
           title: Repository Location
@@ -48,6 +45,10 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+        accessToken:
+          title: Access Token
+          type: string
+          description: Access token that AWS Amplify used to access application's repository
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -58,10 +59,9 @@ spec:
           - .github/workflows/*
         values:
           application_name: ${{ parameters.application_name }}
-          # description: ${{ parameters.description }}
-          # destination: ${{ parameters.repoUrl | parseRepoUrl }}
-          # author: ${{ parameters.author }}
-          # authorEmail: ${{ parameters.authorEmail }}
+          description: ${{ parameters.description }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          owner: ${{ parameters.owner }}
 
     - id: publish
       name: Publish
@@ -71,6 +71,9 @@ spec:
           - github.com
         description: This is ${{ parameters.application_name }}
         repoUrl: ${{ parameters.repoUrl }}
+        repoVisibility: "public"
+        secrets:
+          ACCESS_TOKEN: ${{ parameters.accessToken }}
 
     - id: register
       name: Register
