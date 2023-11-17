@@ -14,7 +14,7 @@ spec:
     - title: Provide some simple information
       required:
         - application_name
-        - author
+        - owner
       properties:
         application_name:
           title: Name
