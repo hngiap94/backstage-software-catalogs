@@ -71,6 +71,7 @@ spec:
           application_name: ${{ parameters.application_name }}
           description: ${{ parameters.description }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
+          repoUrl: ${{ parameters.repoUrl }}
           owner: ${{ parameters.owner }}
 
     - id: publish

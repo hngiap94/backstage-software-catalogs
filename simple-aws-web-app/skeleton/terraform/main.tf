@@ -1,5 +1,9 @@
 data "aws_caller_identity" "current" {}
 
+provider "aws" {
+  region = "us-east-1"
+}
+
 # amplify
 module "amplify" {
   source         = "./modules/amplify"
