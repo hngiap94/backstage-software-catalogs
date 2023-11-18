@@ -31,6 +31,10 @@ jobs:
       with:
         terraform_wrapper: false
 
+    - name: Retrieve Repository URL for Amplify
+      run: |
+        echo "TF_VAR_repository=https://github.com/${{ github.repository }}" >> $GITHUB_ENV
+
     - name: Initialize Terraform
       run: terraform init
 
@@ -42,9 +46,7 @@ jobs:
 
     - name: Retrieve API Gateway Invoke URL
       run: |
-        API_URL=$(terraform output -raw api_gateway_invoke_url)
-        echo $API_URL
-        echo "API_URL=${API_URL}" >> $GITHUB_ENV
+        echo "API_URL=$(terraform output -raw api_gateway_invoke_url)" >> $GITHUB_ENV
 
     - name: Update index.html
       run: |

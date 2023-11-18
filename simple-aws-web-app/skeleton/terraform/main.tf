@@ -7,6 +7,7 @@ provider "aws" {
 # amplify
 module "amplify" {
   source         = "./modules/amplify"
+  repository     = var.repository
   access_token   = var.access_token
 }
 
