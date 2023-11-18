@@ -37,6 +37,8 @@ spec:
       required:
         - repoUrl
         - accessToken
+        - awsAccessKey
+        - awsSecretKey
       properties:
         repoUrl:
           title: Repository Location
@@ -49,6 +51,14 @@ spec:
           title: Access Token
           type: string
           description: Access token that AWS Amplify used to access application's repository
+        awsAccessKey:
+          title: AWS Access Key ID
+          type: string
+          description: Access key to connect AWS
+        awsSecretKey:
+          title: AWS Secret Access Key
+          type: string
+          description: Secret key to connect AWS
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -74,6 +84,8 @@ spec:
         repoVisibility: "public"
         secrets:
           ACCESS_TOKEN: ${{ parameters.accessToken }}
+          AWS_ACCESS_KEY_ID: ${{ parameters.awsAccessKey }}
+          AWS_SECRET_ACCESS_KEY: ${{ parameters.awsSecretKey }}
 
     - id: register
       name: Register
