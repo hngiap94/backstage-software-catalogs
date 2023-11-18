@@ -3,7 +3,7 @@ name: Deploy Infrastructure
 on:
   pull_request:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 defaults:
@@ -60,5 +60,5 @@ jobs:
         git config --global user.name "hngiap94"
         git add index.html
         git commit -m "Update API Gateway URL in index.html"
-        git push origin master
+        git push origin main
       working-directory: src

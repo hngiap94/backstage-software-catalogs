@@ -81,12 +81,12 @@ spec:
         allowedHosts:
           - github.com
         description: This is ${{ parameters.application_name }}
+        defaultBranch: main
         repoUrl: ${{ parameters.repoUrl }}
-        repoVisibility: "public"
+        repoVisibility: public
         bypassPullRequestAllowances:
           users:
             - ${{ (parameters.repoUrl | parseRepoUrl).owner }}
-        # protectDefaultBranch: false
         secrets:
           ACCESS_TOKEN: ${{ parameters.accessToken }}
           AWS_ACCESS_KEY_ID: ${{ parameters.awsAccessKey }}
