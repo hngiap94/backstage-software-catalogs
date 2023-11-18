@@ -83,6 +83,7 @@ spec:
         description: This is ${{ parameters.application_name }}
         repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: "public"
+        protectDefaultBranch: false
         secrets:
           ACCESS_TOKEN: ${{ parameters.accessToken }}
           AWS_ACCESS_KEY_ID: ${{ parameters.awsAccessKey }}
