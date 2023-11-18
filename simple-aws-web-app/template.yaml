@@ -84,7 +84,7 @@ spec:
         repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: "public"
         bypassPullRequestAllowances:
-          users
+          users:
             - ${{ (parameters.repoUrl | parseRepoUrl).owner }}
         # protectDefaultBranch: false
         secrets:
