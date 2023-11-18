@@ -2,7 +2,8 @@
 
 ${{ values.description }}
 
-## Getting started
+## Overview
 
-Start writing your documentation by adding more markdown (.md) files to this
-folder (/docs) or replace the content in this file.
+This is a simple web application running on aws.
+
+We are using github actions and terraform to provision aws infrastructure.

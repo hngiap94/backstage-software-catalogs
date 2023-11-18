@@ -3,6 +3,9 @@ site_description: ${{values.description}}
 
 nav:
   - Introduction: index.md
+  - 'Application architecture': architecture.md
+  - 'Deploy application': deploy.md
+  - 'How to use application': usage.md
 
 plugins:
   - techdocs-core
