@@ -83,6 +83,9 @@ spec:
         description: This is ${{ parameters.application_name }}
         repoUrl: ${{ parameters.repoUrl }}
         repoVisibility: "public"
+        bypassPullRequestAllowances:
+          users
+            - ${{ (parameters.repoUrl | parseRepoUrl).owner }}
         # protectDefaultBranch: false
         secrets:
           ACCESS_TOKEN: ${{ parameters.accessToken }}
