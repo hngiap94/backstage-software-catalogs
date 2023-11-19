@@ -14,7 +14,7 @@ spec:
   owner: ${{values.owner | dump}}
   dependsOn:
     - component:default/demo-component
-    - resouce:default/demo-db
+    - resouce:demo-db
   providesApis:
     - demo-provided-apis
   consumesApis:
