@@ -12,3 +12,7 @@ spec:
   type: service
   lifecycle: experimental
   owner: ${{values.owner | dump}}
+  providesApis:
+    - demo-provided-apis
+  consumesApis:
+    - demo-consumed-apis

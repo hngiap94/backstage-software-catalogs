@@ -1,5 +1,5 @@
 resource "aws_amplify_app" "hello_world_app" {
-  name       = "aws-simple-web-app"
+  name       = "${{values.application_name}}"
   repository = var.repository
   access_token = var.access_token
   build_spec = <<-EOT
