@@ -36,9 +36,6 @@ spec:
     - title: Repository configuration
       required:
         - repoUrl
-        - accessToken
-        - awsAccessKey
-        - awsSecretKey
       properties:
         repoUrl:
           title: Repository Location
@@ -47,11 +44,28 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+    - title: Application configuration
+      required:
+        - techdocsBucketName
+        - accessToken
+        - awsRegion
+        - awsAccessKey
+        - awsSecretKey
+      properties:
+        techdocsBucketName:
+          title: Techdocs Bucket Name
+          type: string
+          description: Bucket name to store application's techdocs
         accessToken:
           title: Access Token
           type: string
           ui:widget: password
           description: Access token that AWS Amplify used to access application's repository
+        awsRegion:
+          title: AWS Region
+          type: string
+          description: AWS region
+          default: us-east-1
         awsAccessKey:
           title: AWS Access Key ID
           type: string
@@ -68,8 +82,8 @@ spec:
       action: fetch:template
       input:
         url: ./skeleton
-        copyWithoutRender:
-          - .github/workflows/*
+        # copyWithoutRender:
+        #   - .github/workflows/*
         values:
           application_name: ${{ parameters.application_name }}
           description: ${{ parameters.description }}
@@ -91,6 +105,10 @@ spec:
         bypassPullRequestAllowances:
           users:
             - ${{ (parameters.repoUrl | parseRepoUrl).owner }}
+        repoVariables:
+          BUCKET_NAME: ${{parameters.techdocsBucketName}}
+          AWS_REGION: ${{parameters.awsRegion}}
+          ENTITY_NAME: ${{parameters.application_name}}
         secrets:
           ACCESS_TOKEN: ${{ parameters.accessToken }}
           AWS_ACCESS_KEY_ID: ${{ parameters.awsAccessKey }}
