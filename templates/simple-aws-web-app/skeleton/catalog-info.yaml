@@ -12,6 +12,8 @@ spec:
   type: service
   lifecycle: experimental
   owner: ${{values.owner | dump}}
+  dependsOn:
+    - component:default/demo-component
   providesApis:
     - demo-provided-apis
   consumesApis:
