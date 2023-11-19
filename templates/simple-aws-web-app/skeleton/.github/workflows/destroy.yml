@@ -24,6 +24,10 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v2
 
+    - name: Retrieve Repository URL for Amplify
+      run: |
+        echo "TF_VAR_repository=https://github.com/${{ github.repository }}" >> $GITHUB_ENV
+
     - name: Initialize Terraform
       run: terraform init
 
