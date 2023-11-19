@@ -1,3 +1,3 @@
 ${{values.destination | dump}}
 ${{values.repoUrl | dump}}
-${{values.version | dump}}
+${{values.testEnv | dump}}
