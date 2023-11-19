@@ -62,6 +62,10 @@ spec:
           type: string
           ui:widget: password
           description: Secret key to connect AWS
+        testValue:
+          title: Test
+          type: string
+          default: abcabc
   steps:
     - id: template
       name: Fetch Skeleton + Template
