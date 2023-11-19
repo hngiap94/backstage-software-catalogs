@@ -65,7 +65,7 @@ spec:
         testValue:
           title: Test
           type: string
-          default: abcabc
+          default: ${{ process.env.GITHUB_TOKEN }}
   steps:
     - id: template
       name: Fetch Skeleton + Template
