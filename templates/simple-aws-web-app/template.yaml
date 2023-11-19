@@ -80,6 +80,7 @@ spec:
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
           repoUrl: ${{ parameters.repoUrl }}
           owner: ${{ parameters.owner }}
+          version: ${{ process.env.VERSION }}
 
     - id: publish
       name: Publish
